@@ -1,6 +1,8 @@
 // import {rerenderTree} from '../render';
-
-let rerenderTree = () => console.log('do rerender')
+let rerenderTree = () => {
+  // debugger;
+  console.log('alert rerenderTree');
+}
 
 const state = {
   data: [
@@ -38,33 +40,23 @@ const state = {
   ]
 };
 
-export const initialFormData = Object.freeze({
-  login: "",
-  password: "",
-  email: "",
-  imgURI: "", // https://picsum.photos/id/437/200/300
-  imgDescr: "",
-  imgAlt: "",
-});
-
 export let addCard = (formData) => {
-  // console.log('state from addCard: ',formData)
-  // debugger;
+
   let newCard = {
     id: Math.floor(Math.random() * 100),
-    login: formData.login || 'SomeLogin',
-    password: formData.password || 'SomePassword',
-    email: formData.email || 'some@email',
-    imgURI: formData.imgURI || `https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/200/300`,
-    imgAlt: formData.imgDescr || 'some descr',
-    imgDescr: formData.imgDescr || 'some descr',
+    login: formData.login,
+    password: formData.password,
+    email: formData.email,
+    imgURI: `https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/200/300`,
+    imgAlt: formData.imgDescr,
+    imgDescr: formData.imgDescr,
   }
-  // console.log('state from addCard AFTER: ', newCard)
   state.data.unshift(newCard);
   rerenderTree(state);
 }
 
 export const subscribe = (observer) => {
+  // debugger;
   rerenderTree = observer;
 }
 

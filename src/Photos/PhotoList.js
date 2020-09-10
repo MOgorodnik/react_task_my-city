@@ -4,9 +4,9 @@ import PhotoItem from "./PhotoItem";
 import "./../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 export default function PhotoList(props) {
-  let { initialFormData } = props;
+  let { state, addCard } = props;
 
-  const PhotoCardItems = props.state.map((item) => {
+  const PhotoCardItems = state.map((item) => {
     return <PhotoItem {...item} />;
   });
 
@@ -14,8 +14,7 @@ export default function PhotoList(props) {
     <div>
       <h1 className="text-center">Gallery</h1>
 
-      <PhotoAddForm state={props.state} addCard={props.addCard} initialFormData={initialFormData} />
-
+      <PhotoAddForm state={state} addCard={addCard} />
       <hr />
 
       <div className="container">

@@ -2,9 +2,15 @@ import React from "react";
 import { useState } from "react";
 
 export default function PhotoAddForm(props) {
-  // console.log('PhotoAddForm', props);
 
-  const { initialFormData } = props;
+  const initialFormData = Object.freeze({
+    login: "User_login",
+    password: "password",
+    email: "email@email",
+    imgURI: "https://picsum.photos/id/437/200/300",
+    imgDescr: "some description",
+    imgAlt: "some alt",
+  });
 
   const [formData, updateFormData] = useState(initialFormData);
 
@@ -18,11 +24,9 @@ export default function PhotoAddForm(props) {
   const handlerSubmit = (e) => {
     e.preventDefault();
     props.addCard(formData);
-    updateFormData(initialFormData)
   }
 
   return (
-
       <div className="container">
         <form action="#" method="" onSubmit={handlerSubmit}>
           <fieldset>

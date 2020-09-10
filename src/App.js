@@ -5,8 +5,9 @@ import Main from "./MainMenu";
 import Castle from "./Castle";
 import PhotoList from "./Photos/PhotoList";
 
-const NotFound = () => <h2>Not found</h2>;
-
+function NotFound() {
+  return <h2>Not found</h2>;
+}
 function NavMenu() {
   return (
     <>
@@ -25,7 +26,6 @@ function NavMenu() {
   );
 }
 export default function App(props) {
-  // console.log(props);
   return (
     <div>
       <Router>
@@ -35,8 +35,6 @@ export default function App(props) {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/castle" component={Castle} />
-            {/* <Route path="/photo-list" component={PhotoList} /> */}
-
             <Route
               path="/photo-list"
               render={() => (
@@ -44,7 +42,6 @@ export default function App(props) {
                   data={props.data}
                   state={props.appState.data}
                   addCard={props.addCard}
-                  initialFormData={props.initialFormData}
                 />
               )}
             />

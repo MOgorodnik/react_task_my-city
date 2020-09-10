@@ -1,22 +1,23 @@
-// import {rerenderTree} from './render'
 import state, { subscribe } from './redux/state';
+// import {rerenderTree} from './render';
+
 import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./App";
-import { addCard, initialFormData } from "./redux/state";
+import { addCard } from "./redux/state";
 
 const rootElement = document.getElementById("root");
 
-let rerenderTree = () => {
+export let rerenderTree = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <App data={state.data} appState={state} addCard={addCard}  initialFormData={initialFormData} />
+      <App data={state.data} appState={state} addCard={addCard} />
     </React.StrictMode>,
     rootElement
   );
 };
 
-rerenderTree(state);
+rerenderTree(state)
 
 subscribe(rerenderTree)
