@@ -23,24 +23,32 @@
 }
 .gallery-list {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  width: 180px;
+div.gallery-item {
+  margin: 1.6%;
+  outline: 1px solid #ccc;
+  flex-basis: 30%;
   box-shadow: 0 0 10px #000;
 }
 
-div.gallery:hover {
-  border: 1px solid #777;
+div.gallery-item:hover {
+  outline: 1px solid #777;
 }
 
-div.gallery .img-holder {
-  min-height: 200px;
-}
-div.gallery img {
-  width: 100%;
+div.gallery-item .img-holder {
   height: 190px;
+  overflow: hidden;
+  position: relative;
+}
+div.gallery-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
   object-fit: fill;
 }
 
